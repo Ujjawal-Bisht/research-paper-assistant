@@ -4,3 +4,8 @@
 __pycache__/
 *.pyc
 .streamlit/
+# Ignore all files inside logs/
+logs/*
+
+# But keep the placeholder file
+!logs/.gitkeep
