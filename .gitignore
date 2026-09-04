@@ -9,3 +9,6 @@ logs/*
 
 # But keep the placeholder file
 !logs/.gitkeep
+
+data/sample_papers/*
+!data/sample_papers/.gitkeep
