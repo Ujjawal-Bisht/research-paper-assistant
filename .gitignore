@@ -1,0 +1,6 @@
+/.venv
+/.env
+/roadmap.md
+__pycache__/
+*.pyc
+.streamlit/
