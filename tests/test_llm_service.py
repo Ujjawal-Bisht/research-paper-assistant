@@ -1,7 +1,24 @@
+import os
+
+import pytest
+
 from app.services.llm_service import (
     GROQ_MODEL,
     get_groq_client,
     generate_response,
+)
+
+
+LIVE_GROQ_TESTS_ENABLED = bool(
+    os.getenv("RUN_LIVE_GROQ_TESTS")
+)
+
+
+pytestmark = pytest.mark.skipif(
+    not LIVE_GROQ_TESTS_ENABLED,
+    reason=(
+        "Live Groq tests disabled. Set RUN_LIVE_GROQ_TESTS=1 to enable."
+    ),
 )
 
 

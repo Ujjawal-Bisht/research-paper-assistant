@@ -322,6 +322,25 @@ def get_retry_delay(
     )
 
 
+def is_non_retryable_rate_limit(
+    error: RateLimitError,
+) -> bool:
+    """Return whether Groq reports an exhausted daily token quota."""
+
+    error_text = str(error).lower()
+
+    return any(
+        marker in error_text
+        for marker in (
+            "tokens per day",
+            "token per day",
+            "daily quota",
+            "t-p-d",
+            "tpd",
+        )
+    )
+
+
 # ============================================================
 # Response Generation
 # ============================================================
@@ -430,6 +449,18 @@ def generate_response(
             return content.strip()
 
         except RateLimitError as exc:
+
+            if is_non_retryable_rate_limit(exc):
+                logger.error(
+                    "Groq daily token quota is exhausted. "
+                    "Skipping retries."
+                )
+
+                raise RuntimeError(
+                    "Groq daily token quota is exhausted. "
+                    "Please wait for the quota to reset or use another "
+                    "Groq project/API key."
+                ) from exc
 
             # ------------------------------------------------
             # If this was the final allowed attempt, propagate
