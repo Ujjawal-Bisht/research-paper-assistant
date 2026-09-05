@@ -9,3 +9,5 @@ streamlit
 python-dotenv
 pypdf
 docx2txt
+torch==2.14.0
+torchvision==0.29.0
