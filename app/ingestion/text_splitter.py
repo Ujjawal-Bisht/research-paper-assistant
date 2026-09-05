@@ -3,6 +3,10 @@ from typing import List
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
+from app.config.config import (
+    DEFAULT_CHUNK_OVERLAP,
+    DEFAULT_CHUNK_SIZE,
+)
 from app.utils.logger import get_logger
 
 
@@ -11,8 +15,8 @@ logger = get_logger(__name__)
 
 def split_documents(
     documents: List[Document],
-    chunk_size: int = 500,
-    chunk_overlap: int = 100,
+    chunk_size: int = DEFAULT_CHUNK_SIZE,
+    chunk_overlap: int = DEFAULT_CHUNK_OVERLAP,
 ) -> List[Document]:
     
     """

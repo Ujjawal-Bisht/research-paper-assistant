@@ -4,13 +4,11 @@ from langchain_core.documents import Document
 from langchain_core.vectorstores import VectorStore
 from langchain_core.retrievers import BaseRetriever
 
+from app.config.config import DEFAULT_TOP_K
 from app.utils.logger import get_logger
 
 
 logger = get_logger(__name__)
-
-
-DEFAULT_TOP_K = 5
 
 
 def get_retriever(

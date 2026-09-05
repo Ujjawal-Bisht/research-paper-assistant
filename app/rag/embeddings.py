@@ -1,12 +1,10 @@
 from langchain_huggingface import HuggingFaceEmbeddings
 
+from app.config.config import EMBEDDING_MODEL_NAME
 from app.utils.logger import get_logger
 
 
 logger = get_logger(__name__)
-
-
-EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 
 
 def get_embedding_model() -> HuggingFaceEmbeddings:

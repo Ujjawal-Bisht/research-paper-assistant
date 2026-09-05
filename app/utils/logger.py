@@ -1,22 +1,15 @@
 import logging
 from logging.handlers import RotatingFileHandler
-from pathlib import Path
 
-
-# Project root directory
-BASE_DIR = Path(__file__).resolve().parents[2]
-
-# Directory where log files will be stored
-LOG_DIR = BASE_DIR / "logs"
-LOG_DIR.mkdir(parents=True, exist_ok=True)
-
-
-LOG_FORMAT = (
-    "%(asctime)s | "
-    "%(levelname)-8s | "
-    "%(name)s | "
-    "%(message)s"
+from app.config.config import (
+    LOG_BACKUP_COUNT,
+    LOG_DIR,
+    LOG_FORMAT,
+    LOG_MAX_BYTES,
 )
+
+
+LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def get_logger(name: str) -> logging.Logger:
@@ -54,8 +47,8 @@ def get_logger(name: str) -> logging.Logger:
     # General application log
     app_file_handler = RotatingFileHandler(
         LOG_DIR / "app.log",
-        maxBytes=5 * 1024 * 1024,  # 5 MB
-        backupCount=3,
+        maxBytes=LOG_MAX_BYTES,
+        backupCount=LOG_BACKUP_COUNT,
         encoding="utf-8",
     )
     app_file_handler.setLevel(logging.DEBUG)
@@ -64,8 +57,8 @@ def get_logger(name: str) -> logging.Logger:
     # Error log
     error_file_handler = RotatingFileHandler(
         LOG_DIR / "errors.log",
-        maxBytes=5 * 1024 * 1024,
-        backupCount=3,
+        maxBytes=LOG_MAX_BYTES,
+        backupCount=LOG_BACKUP_COUNT,
         encoding="utf-8",
     )
     error_file_handler.setLevel(logging.ERROR)

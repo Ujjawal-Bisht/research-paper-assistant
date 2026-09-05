@@ -5,13 +5,11 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 
+from app.config.config import VECTOR_STORE_PATH
 from app.utils.logger import get_logger
 
 
 logger = get_logger(__name__)
-
-
-DEFAULT_VECTOR_STORE_PATH = "data/vector_store"
 
 
 def create_vector_store(
@@ -76,7 +74,7 @@ def create_vector_store(
 
 def save_vector_store(
     vector_store: FAISS,
-    store_path: str = DEFAULT_VECTOR_STORE_PATH,
+    store_path: str = VECTOR_STORE_PATH,
 ) -> None:
     """
     Save a FAISS vector store to disk.
@@ -120,7 +118,7 @@ def save_vector_store(
 
 def load_vector_store(
     embedding_model: Embeddings,
-    store_path: str = DEFAULT_VECTOR_STORE_PATH,
+    store_path: str = VECTOR_STORE_PATH,
 ) -> FAISS:
     """
     Load a previously saved FAISS vector store.
