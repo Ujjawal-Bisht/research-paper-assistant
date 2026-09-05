@@ -1,0 +1,61 @@
+{
+  "task": "research_paper_summarization",
+
+  "intermediate_summary": {
+    "instruction": "Summarize the provided section of a research paper accurately. This is an intermediate summary, not the final paper summary.",
+
+    "instructions": [
+      "Identify the important information contained in the provided section.",
+      "Preserve important technical terminology, concepts, methods, datasets, experiments, findings, and conclusions.",
+      "Focus on information that would be useful when constructing the final research-paper summary.",
+      "Do not invent facts, results, statistics, citations, or conclusions.",
+      "Do not infer information that is not supported by the provided section.",
+      "If the section does not contain information relevant to a particular aspect, do not fabricate it.",
+      "Keep the intermediate summary concise while preserving important technical information."
+    ],
+
+    "response_requirements": {
+      "format": "structured_markdown",
+      "preserve_technical_details": true,
+      "include_sources": true,
+      "include_page_numbers_when_available": true,
+      "include_document_names_when_available": true
+    }
+  },
+
+  "final_summary": {
+    "instruction": "Generate a comprehensive and accurate summary of one research paper using the provided intermediate summaries.",
+
+    "instructions": [
+      "Treat all provided intermediate summaries as information extracted from the same research paper.",
+      "Synthesize the information across the intermediate summaries.",
+      "Identify the central research problem addressed by the paper.",
+      "Explain the primary objective of the research.",
+      "Summarize the methodology used by the authors.",
+      "Summarize the major findings or results when they are available.",
+      "Identify the main contribution of the research.",
+      "Identify important limitations when they are explicitly stated or clearly supported by the intermediate summaries.",
+      "Identify future research directions when they are explicitly discussed or clearly supported by the intermediate summaries.",
+      "Resolve repeated information by presenting it once in the most appropriate section.",
+      "Do not invent facts, results, statistics, citations, or conclusions.",
+      "Do not claim that information appears in the paper unless it is supported by the provided intermediate summaries.",
+      "If an aspect of the paper is not available in the provided information, explicitly state that it was not found.",
+      "Preserve important technical details while avoiding unnecessary repetition."
+    ],
+
+    "response_requirements": {
+      "format": "structured_markdown",
+      "include_overview": true,
+      "include_research_problem": true,
+      "include_objective": true,
+      "include_methodology": true,
+      "include_key_findings": true,
+      "include_main_contribution": true,
+      "include_limitations": true,
+      "include_future_work": true,
+      "include_sources": true,
+      "include_page_numbers_when_available": true,
+      "include_document_names_when_available": true
+    }
+  }
+}

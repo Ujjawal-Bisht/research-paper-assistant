@@ -13,8 +13,22 @@ load_dotenv()
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-PROMPTS_FILE = (
-    Path(__file__).resolve().parent / "prompts" / "system_prompt.json"
+SYSTEM_PROMPT_FILE = (
+    Path(__file__).resolve().parent
+    / "prompts"
+    / "system_prompt.json"
+)
+
+QA_PROMPT_FILE = (
+    Path(__file__).resolve().parent
+    / "prompts"
+    / "qa_prompt.json"
+)
+
+SUMMARY_PROMPT_FILE = (
+    Path(__file__).resolve().parent
+    / "prompts"
+    / "summary_prompt.json"
 )
 
 
@@ -25,6 +39,24 @@ PROMPTS_FILE = (
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 GROQ_MODEL = "groq/compound"
+
+
+# ============================================================
+# Groq Retry Configuration
+# ============================================================
+
+# Maximum number of additional attempts after the initial
+# Groq request fails because of a rate limit.
+GROQ_MAX_RETRIES = 3
+
+
+# Default delay used when Groq does not provide a retry
+# duration in the rate-limit response.
+GROQ_DEFAULT_RETRY_DELAY = 10
+
+
+# Maximum delay allowed between retry attempts.
+GROQ_MAX_RETRY_DELAY = 60
 
 
 # ============================================================
@@ -53,6 +85,16 @@ DEFAULT_TOP_K = 5
 
 VECTOR_STORE_PATH = "data/vector_store"
 
+TEST_VECTOR_STORE_PATH = "data/test_sample_vector_store"
+
+
+# ============================================================
+# Summarization Configuration
+# ============================================================
+
+SUMMARY_BATCH_CHAR_LIMIT = 12000
+
+SUMMARY_SYNTHESIS_CHAR_LIMIT = 10000
 
 # ============================================================
 # Application Configuration

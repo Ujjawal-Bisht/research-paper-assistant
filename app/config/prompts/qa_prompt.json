@@ -1,0 +1,28 @@
+{
+  "task": "research_paper_question_answering",
+  "instruction": "Answer the user's question using the retrieved research-paper context.",
+  "prompt_template": {
+    "context": "{context}",
+    "question": "{question}"
+  },
+  "instructions": [
+    "Use the retrieved context as the primary source for the answer.",
+    "Identify the information in the context that is relevant to the user's question.",
+    "Synthesize information from multiple retrieved chunks when necessary.",
+    "Answer the question directly before providing additional explanation.",
+    "Do not use information that is not supported by the retrieved context.",
+    "If the context does not contain enough information to answer the question, clearly state that the available research-paper context is insufficient.",
+    "Do not fabricate citations or source information."
+  ],
+  "response_requirements": {
+    "answer_should_be": [
+      "Accurate",
+      "Relevant",
+      "Concise",
+      "Evidence-based"
+    ],
+    "include_sources": true,
+    "include_page_numbers_when_available": true,
+    "include_document_names_when_available": true
+  }
+}
