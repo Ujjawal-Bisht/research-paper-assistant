@@ -56,7 +56,7 @@ flowchart TD
 
 The repository includes a recorded demonstration of the application:
 
-**[Watch / Open Demo Video — rec.gif](./rec.gif)**
+**[Watch / Open Demo Video — rec.mp4](./rec.mp4)**
 
 > The demo shows the main application workflow, including document upload, pipeline construction, question answering, and research-paper summarization.
 
