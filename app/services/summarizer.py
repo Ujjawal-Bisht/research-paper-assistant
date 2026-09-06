@@ -701,6 +701,14 @@ def synthesize_summaries(
             len(groups),
         )
 
+        if len(groups) >= len(current_summaries):
+            logger.warning(
+                "Synthesis grouping did not reduce the summary count. "
+                "Forcing one final synthesis request."
+            )
+
+            groups = [current_summaries]
+
         next_summaries = []
 
         for group_index, group in enumerate(groups, start=1):

@@ -17,3 +17,4 @@ data/test_vector_store/*
 !data/test_vector_store/.gitkeep
 data/test_sample_vector_store/*
 !data/test_sample_vector_store/.gitkeep
+/rec.mp4

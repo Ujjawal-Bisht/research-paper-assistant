@@ -355,6 +355,36 @@ def test_synthesize_single_summary():
     assert result == summaries[0]
 
 
+def test_synthesize_forces_progress_when_groups_do_not_shrink(monkeypatch):
+    prompt_config = load_summary_prompt()
+
+    summaries = [
+        "A " * 3500,
+        "B " * 3500,
+    ]
+
+    calls = []
+
+    def fake_generate_response(client, user_prompt):
+        calls.append(user_prompt)
+        return "Final synthesized summary."
+
+    monkeypatch.setattr(
+        "app.services.summarizer.generate_response",
+        fake_generate_response,
+    )
+
+    result = synthesize_summaries(
+        summaries=summaries,
+        prompt_config=prompt_config,
+        client=object(),
+        max_characters=5000,
+    )
+
+    assert result == "Final synthesized summary."
+    assert len(calls) == 1
+
+
 # ============================================================
 # Source Extraction Tests
 # ============================================================
