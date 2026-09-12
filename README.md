@@ -226,11 +226,13 @@ research-paper-assistant/
 │
 ├── .env.example
 ├── .gitignore
+├── LICENSE
 ├── pyproject.toml
 ├── README.md
 ├── rec.mp4
 ├── requirements.txt
-└── roadmap.md
+└── streamlit_app.py
+
 ```
 
 > `.env` and local virtual-environment files are intentionally excluded from version control.
@@ -625,10 +627,6 @@ This separation keeps document processing, retrieval, LLM interactions, business
 
 ## License
 
-Add your preferred license here.
-
-For example:
-
 ```text
 MIT License
 ```
@@ -638,5 +636,3 @@ MIT License
 ## Author
 
 **Ujjawal Bisht**
-
-Built as a practical RAG/LLM project for learning, experimentation, and portfolio development.

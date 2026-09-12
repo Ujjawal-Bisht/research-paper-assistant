@@ -1,3 +1,26 @@
+[project]
+name = "research-paper-assistant"
+version = "0.1.0"
+description = "An AI-powered research paper analysis assistant using RAG, FAISS, embeddings, and LLM services."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Ujjawal Bisht", email = "ujjawalbisht@gmail.com" }
+]
+keywords = ["research", "rag", "faiss", "paper", "llm"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Framework :: Streamlit"
+]
+
+[project.urls]
+Homepage = "https://github.com/Ujjawal-Bisht/research-paper-assistant"
+Repository = "https://github.com/Ujjawal-Bisht/research-paper-assistant"
+Documentation = "https://github.com/Ujjawal-Bisht/research-paper-assistant#readme"
+Issues = "https://github.com/Ujjawal-Bisht/research-paper-assistant/issues"
+
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
